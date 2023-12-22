@@ -28,7 +28,7 @@
             <div class="section">
                 <h2>Part 2: Free Response</h2>
                 <hr>
-                <h3>In which country do they celebrate the 4th of July?</h3>
+                <h3>Which country is famous for their Maple Syrup?</h3>
                 <input type="text" id="country" placeholder="Enter your answer here">
                 <button id="submit">Check Answer</button>
                 <div id="response"></div>
@@ -55,6 +55,27 @@
                         document.getElementById('message').innerHTML = 'Incorrect';
                     }
                 });
+            });
+
+            // Get the input field and submit button
+            const inputField = document.getElementById('country');
+            const submitButton = document.getElementById('submit');
+
+            // Correct answer for the free response question
+            const correctAnswerFreeResponse = 'Canada';
+
+            // Add event listener to the submit button
+            submitButton.addEventListener('click', function() {
+                // Check if the input field value is the correct answer
+                if (inputField.value.trim().toLowerCase() === correctAnswerFreeResponse.toLowerCase()) {
+                    // Change input field color to green and display 'Correct!'
+                    inputField.style.backgroundColor = 'green';
+                    document.getElementById('response').innerHTML = 'Correct!';
+                } else {
+                    // Change input field color to red and display 'Incorrect'
+                    inputField.style.backgroundColor = 'red';
+                    document.getElementById('response').innerHTML = 'Incorrect';
+                }
             });
         </script>
     </body>
