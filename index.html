@@ -5,9 +5,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
-        <script>
-            // TODO: Add code to check answers to questions
-        </script>
     </head>
     <body>
         <div class="header">
@@ -19,13 +16,13 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3>What is Bruce Wayne's secret identity?</h3>
-                <button>Superman</button>
-                <button>Wonder Woman</button>
-                <button>Iron Man</button>
-                <button>The Hulk</button>
-                <button>Batman</button>
-                </h3>
-
+                <button id="superman">Superman</button>
+                <button id="wonder_woman">Wonder Woman</button>
+                <button id="iron_man">Iron Man</button>
+                <button id="the_hulk">The Hulk</button>
+                <button id="batman">Batman</button>
+                
+                <div id="message"></div>
             </div>
 
             <div class="section">
@@ -34,5 +31,28 @@
                 <!-- TODO: Add free response question here -->
             </div>
         </div>
+        <script>
+            // Get all buttons
+            const buttons = document.querySelectorAll('button');
+
+            // Add event listeners to buttons
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Correct answer id
+                    const correctAnswerId = 'batman';
+
+                    // Check if the clicked button is the correct answer
+                    if (button.id === correctAnswerId) {
+                        // Change button color to green and display 'Correct!'
+                        button.style.backgroundColor = 'green';
+                        document.getElementById('message').innerHTML = 'Correct!';
+                    } else {
+                        // Change button color to red and display 'Incorrect'
+                        button.style.backgroundColor = 'red';
+                        document.getElementById('message').innerHTML = 'Incorrect';
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
